@@ -10,6 +10,14 @@
     <%= f.text_field :fullname, autofocus: true, placeholder: "Full Name", class: "form-control" %>
   </div>
 
+   <div class="form-group">
+    <%= f.text_field :phone_number, autofocus: true, placeholder: "Full Name", class: "form-control" %>
+  </div>
+
+   <div class="form-group">
+    <%= f.text_area :description, rows: 5, cols: 25, autofocus: true, placeholder: "Description", class: "form-control" %>
+  </div>
+
   <div class="form-group">
     <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
   </div>
@@ -34,7 +42,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Save", class: "btn btn-primary" %>
+    <%= f.submit "Save", class: "btn btn-normal btn-block" %>
   </div>
 <% end %>
 
