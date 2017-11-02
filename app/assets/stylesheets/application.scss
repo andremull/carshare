@@ -140,3 +140,39 @@ a {
     font-weight: 500;
     line-height: 25px;
 }
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-control {
+    border-radius: 2px;
+    height: 2rem;
+}
+
+.sidebar-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.sidebar-item {
+    padding: 10px 0;
+    font-size: 16px;
+    color: #82888a;
+}
+
+.sidebar-link {
+    color: #82888a;
+}
+
+.sidebar-link:hover, .sidebar-link:focus {
+    color: #CACCCD;
+    text-decoration: none;
+}
+
+.acive.sidebar-link {
+    color: #565a5c;
+    font-weight: 700;
+
+}
+

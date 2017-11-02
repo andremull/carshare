@@ -1,9 +1,20 @@
-<div class="row">
-  <div class = "col-md-4 col-md-offset-4">
+<div class = "row">
+    <div class = "col-md-3">
+    <ul class = "sidebar-list">
+      <li class = "sidebar-item"> <%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %> </li>
+    </ul>
+    <br/>
 
-<h2 class="text-center"> Profile </h2>
+    <%= link_to "View my Profile", user_path(current_user.id), class: "btn btn-default"%>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <div class = "col-md-9 text-center">
+      <div class = "panel panel-default">
+        <div class = "panel-heading"> Your Profile </div>
+          <div class = "panel-body"> 
+          <div class = "container">
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <%= render 'shared/devisemes' %>
 
     <div class="form-group">
@@ -11,7 +22,7 @@
   </div>
 
    <div class="form-group">
-    <%= f.text_field :phone_number, autofocus: true, placeholder: "Full Name", class: "form-control" %>
+    <%= f.text_field :phone_number, autofocus: true, placeholder: "Phone Number +61", class: "form-control" %>
   </div>
 
    <div class="form-group">
@@ -45,7 +56,23 @@
     <%= f.submit "Save", class: "btn btn-normal btn-block" %>
   </div>
 <% end %>
+          
+          
+          
+          </div>
+           </div>
+
+        </div>
 
 
-  </div>
+        
+      
+    </div>
+
 </div>
+
+
+
+
+
+
