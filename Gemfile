@@ -25,6 +25,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'toastr-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '2.10.47'
+gem "geocoder"
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

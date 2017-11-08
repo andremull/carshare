@@ -46,6 +46,18 @@ Rails.application.configure do
 
   }
 
+  config.paperclip_defaults = {
+    storage: :s3,
+    path: ':class/:attachment/:style/:id/:filename',
+    s3_host_name: 's3-ap-southeast-2.amazonaws.com',
+    s3_credentials: {
+      bucket: 'carshare1',
+      access_key_id: 'AKIAJQU7XNXO4QLFG3VQ',
+      secret_access_key: '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',
+      s3_region: 'ap-southeast-2',
+    }
+  }
+
 
   # config.action_mailer.smtp_settings = {
   #   address: 'smtp.gmail.com',

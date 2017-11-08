@@ -1,0 +1,33 @@
+<div class = "row">
+<div class= "col-md-3">
+<ul class = "sidebar-list">
+<li class="sidebar-item" ><%= link_to "Your Listings", cars_path, class: "sidebar-link active" %> </li>
+<li class="sidebar-item" ><%= link_to "Your Reservations", cars_path, class: "sidebar-link active" %> </li>
+</ul>
+
+<div class="col-md-9">
+ <div class="panel panel-default">
+  <div class="panel-heading">
+    Lisitngs
+</div>
+<div class="panel-body">
+
+<% @cars.each do |car|%>
+<div class="row">
+ <div class="col-md-2">
+ <%= image_tag car.cover_photo(:thumb) %>
+ </div>
+ <div class="col-md-7">
+ <h4><%= car.listing_name %></h4>
+ </div>
+ <div class="col-md-3 right">
+    <%= link_to "update", listing_car_path(car), class: "btn btn-form"%>
+ </div>        
+</div>
+<hr/>
+<%end%>
+</div>
+ </div>
+</div>
+</div>
+

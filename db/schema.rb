@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101062745) do
+ActiveRecord::Schema.define(version: 20171108124525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cars", force: :cascade do |t|
+    t.string "listing_name"
+    t.string "car_type"
+    t.string "transmission"
+    t.integer "doors_num"
+    t.text "summary"
+    t.integer "price"
+    t.boolean "active"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "location"
+    t.float "latitude"
+    t.float "longitude"
+    t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.bigint "car_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["car_id"], name: "index_photos_on_car_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "car_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "price"
+    t.integer "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_reservations_on_car_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,4 +83,8 @@ ActiveRecord::Schema.define(version: 20171101062745) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cars", "users"
+  add_foreign_key "photos", "cars"
+  add_foreign_key "reservations", "cars"
+  add_foreign_key "reservations", "users"
 end

@@ -1,0 +1,54 @@
+<div class ="panel panel-default">
+    <div class ="panel-heading">
+        Create you Car
+</div>
+<div class="panel-body">
+    <div class="container">
+
+
+    <%= form_for @car do |f| %>
+
+
+    <div class="row">
+      <div class="col-md-4 select">
+      <div class="form-group">
+      <label>Car Type</label>
+
+    <%= f.select :car_type,[["Exotic", "Exotic"],["Sports", "Sports"],["Luxury", "Luxury"]],
+       id: "car_type", prompt: "Select...", class: "form-control" %>
+
+      </div>
+    </div>
+
+     <div class="col-md-4 select">
+      <div class="form-group">
+      <label>Transmission</label>
+
+    <%= f.select :transmission,[["Manual", "Manual"],["Automatic", "Automatic"]],
+       id: "transmission", prompt: "Select...", class: "form-control" %>
+
+      </div>
+    </div>
+
+     <div class="col-md-4 select">
+      <div class="form-group">
+      <label>Number of Doors</label>
+
+    <%= f.select :doors_num,[["3", 3],["5", 5]],
+       id: "doors_num", prompt: "Select...", class: "form-control" %>
+
+      </div>
+    </div>
+
+
+  </div>
+
+    <div> <%= f.submit "List my Car", class: "btn btn-normal" %> </div>
+ 
+    <%end%>
+
+
+
+  </div>
+ </div>
+</div>
