@@ -1,41 +1,44 @@
 <div class="row">
-	<div class="col-md-3">
-		<ul class="sidebar-list">
-			<li class="sidebar-item"><%= link_to "Your Listing", cars_path, class: "sidebar-link" %></li>
-			<li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
-			<li class="sidebar-item"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link active" %></li>
-		</ul>
-	</div>
-	<div class="col-md-9">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				Your Trips
-			</div>
-			<div class="panel-body">
-				
-				<% @trips.each do |trip| %>
-					<div class="row">
-						<div class="col-md-2">
-							<%= trip.start_date.strftime('%v') %>
-						</div>	
-						<div class="col-md-6">
-							<%= link_to car_path(trip.car) do %>
-								<%= image_tag trip.car.photos[0].image.url(:thumb) if trip.car.photos.length > 0 %>
-							<% end %>
-						</div>	
-						<div class="col-md-2">
-							<%= link_to user_path(trip.car.user) do %>
-								<%= image_tag avatar_url(trip.car.user), class: "img-circle avatar-medium" %>
-							<% end %>	
-						</div>	
-						<div class="col-md-2 right">
-							<h4>$<%= trip.total %></h4>
-						</div>	
-					</div>
-					<hr>
-				<% end %>
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "Your Listings", cars_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link active" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Your Trips
+      </div>
+      <div class="panel-body">
 
-			</div>
-		</div>
-	</div>
+        <% @trips.each do |trip| %>
+          <div class="row">
+            <div class="col-md-2">
+              <%= trip.start_date.strftime('%v') %>
+            </div>
+            <div class="col-md-2">
+              <%= link_to car_path(trip.car) do %>
+                <%= image_tag trip.car.cover_photo(:thumb) %>
+              <% end %>
+            </div>
+            <div class="col-md-5">
+              <%= link_to trip.car.listing_name, car_path(trip.car) %><br/><br/>
+              <span>
+                <%= image_tag avatar_url(trip.car.user), class: "img-circle avatar-small" %>
+                <%= link_to user_path(trip.car.user) do %>
+                    <%= trip.car.user.fullname %>
+                <% end %>
+              </span>
+            </div>
+            <div class="col-md-3 text-right">
+              <%= render partial: "reviews/renter_form", locals: {reservation: trip} %>
+            </div>
+          </div>
+          <hr/>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

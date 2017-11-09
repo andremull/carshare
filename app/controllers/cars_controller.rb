@@ -100,7 +100,7 @@ class CarsController < ApplicationController
 
   def show
     @photos = @car.photos
-    
+    @renter_reviews = @car.renter_reviews
   end
 
   def listing

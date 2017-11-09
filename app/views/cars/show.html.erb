@@ -94,6 +94,20 @@
     </div>
     <hr/>
 
+    <!-- REVIEWS -->
+    <div class="row">
+      <div class="col-md-12">
+        <h3>
+          <%= pluralize(@renter_reviews.count, "Review") %>
+          <span id="average_rating"></span>
+        </h3>
+        <div class="container">
+          <div><%= render "reviews/renter_list" %></div>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <hr/>
   
 
 
