@@ -11,13 +11,13 @@ class PagesController < ApplicationController
 
     # STEP 2
     if session[:loc_search] && session[:loc_search] != ""
-      @cars_address = Car.where(active: true).near(session[:loc_search], 5, order: 'distance')
+      @cars_location = Car.where(active: true).near(session[:loc_search], 5, order: 'distance')
     else
-      @cars_address = Car.where(active: true).all
+      @cars_location = Car.where(active: true).all
     end
 
     # STEP 3
-    @search = @cars_address.ransack(params[:q])
+    @search = @cars_location.ransack(params[:q])
     @cars = @search.result
 
     @arrcars = @cars.to_a
