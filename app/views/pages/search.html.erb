@@ -51,7 +51,7 @@
       </div>
       <br/>
 
-
+    
 
 
   <div id="right">
@@ -132,13 +132,13 @@
 <script>
   $(function() {
     $("#q_price_gteq").val('100');
-    $("#q_price_lteq").val('500');
+    $("#q_price_lteq").val('1000');
 
     $("#slider-range").slider({
       range: true,
       min: 0,
       max: 1000,
-      values: [100, 500],
+      values: [100, 1000],
       slide: function(event, ui) {
         $("#q_price_gteq").val(ui.values[0]);
         $("#q_price_lteq").val(ui.values[1]);

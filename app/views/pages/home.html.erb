@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-md-7 banner">
-    <h1><span class="text-red">CarShare</span> Choose from thousands of unique cars for rent by local hosts</h1>
+    <div class="text-center"> 
+    <h1><span class="text-red">CarShare,</span> Choose from thousands of unique cars for rent by local hosts</h1>
+    </div>
   </div>
 </div>
 
@@ -27,38 +29,14 @@
 
 <br/><hr/><br/>
 
-<!-- HOMES -->
+
 <div><h3>Cars</h3></div>
 <br/>
 
-
-
-<!-- CITIES -->
-<div><h3>Cities</h3></div>
-<br/>
-
 <div class="row">
-  <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=los+angeles">
-      <div class="discovery-card" style="background-image: url('/assets/LA.jpg')"></div>
-    </a>
-  </div>
-  <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=london">
-      <div class="discovery-card" style="background-image: url('/assets/LD.jpg')"></div>
-    </a>
-  </div>
-  <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=paris">
-      <div class="discovery-card" style="background-image: url('/assets/PR.jpg')"></div>
-    </a>
-  </div>
-  <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=miami">
-      <div class="discovery-card" style="background-image: url('/assets/MI.jpg')"></div>
-    </a>
-  </div>
+  <%= render partial: "cars/cars_list", locals: {cars: @cars} %>
 </div>
+
 
 
 <script>

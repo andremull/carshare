@@ -26,15 +26,22 @@
       <%= @user.description %>
     </div>
 
+     <h4>Listings (<%= @cars.length %>)</h4><br/>
+
+    <div class="row">
+      <%= render partial: "cars/cars_list", locals: {cars: @cars} %>
+    </div>
+    <br/>
+
       <h4>Reviews From Renters (<%= @renter_reviews.count %>)</h4>
     <div class="row">
-      <%= render "reviews/renters_list" %>
+      <%= render "reviews/renter_list" %>
     </div>
     <br/>
 
     <h4>Reviews From Owners (<%= @owner_reviews.count %>)</h4>
     <div class="row">
-      <%= render "reviews/host_list" %>
+      <%= render "reviews/owner_list" %>
     </div>
 
   </div>
