@@ -171,3 +171,10 @@
   </div>
 </div>
 
+<script>
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= @car.average_rating %>
+  });
+</script>
