@@ -3,7 +3,6 @@ class RenterReviewsController < ApplicationController
   def create
     # Step 1: Check if the reservation exist (car_id, owner_id, owner_id)
 
-    # Step 2: Check if the current owner already reviewed the renter in this reservation.
 
     @reservation = Reservation.where(
                     id: renter_review_params[:reservation_id],

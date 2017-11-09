@@ -46,28 +46,20 @@ Rails.application.configure do
 
   }
 
-  config.paperclip_defaults = {
-    storage: :s3,
-    path: ':class/:attachment/:style/:id/:filename',
+ 
+
+
+config.paperclip_defaults = {
+  storage: :s3,
+  path: ':class/:attachment/:style/:id/:filename',
     s3_host_name: 's3-ap-southeast-2.amazonaws.com',
-    s3_credentials: {
-      bucket: 'carshare1',
-      access_key_id: 'AKIAJQU7XNXO4QLFG3VQ',
-      secret_access_key: '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',
-      s3_region: 'ap-southeast-2',
-    }
+  s3_credentials: {
+    bucket: ENV.fetch('S3_BUCKET'),
+    access_key_id: ENV.fetch('S3_ACCESS_KEY_ID'),
+    secret_access_key: ENV.fetch('S3_SECRET_ACCESS_KEY'),
+    s3_region: ENV.fetch('S3_REGION'),
   }
-
-
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.gmail.com',
-  #   port: 587,
-  #   enable_starttls_auto: true,
-  #   authentication: 'plain',
-  #   user_name: 'andremtest@gmail.com',
-  #   password: 'passwordtest',
-
-  # }
+}
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
