@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
   has_many :cars
   has_many :reservations
+  
+  has_many :renter_reviews, class_name: "RenterReview", foreign_key: "renter_id"
+  has_many :owner_reviews, class_name: "OwnerReview", foreign_key: "owner_id"
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first

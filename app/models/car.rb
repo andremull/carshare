@@ -3,6 +3,8 @@ class Car < ApplicationRecord
   has_many :photos
   has_many :reservations
 
+  has_many :renter_reviews
+
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
 
@@ -11,7 +13,9 @@ class Car < ApplicationRecord
         self.photos[0].image.url(size)
       else
         "blank.jpg"
- 
       end
+  end
+    def average_rating
+    renter_reviews.count == 0 ? 0 : renter_reviews.average(:star).round(2).to_i
   end
 end
